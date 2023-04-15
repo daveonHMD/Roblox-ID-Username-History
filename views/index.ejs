@@ -1,0 +1,146 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <meta http-equiv="X-UA-Compatible" content="ie=edge" />
+    <title>Roblox Username History</title>
+    <link rel="stylesheet" href="https://pro.fontawesome.com/releases/v5.14.0/css/all.css" crossorigin="anonymous">
+    <link href="https://cdnjs.cloudflare.com/ajax/libs/flowbite/1.6.5/flowbite.min.css" rel="stylesheet" />
+    <style>
+  .not-found-message {
+    color: #FF6865;
+  }
+</style>
+    <style>
+      .usernames-wrapper {
+        display: flex;
+        flex-wrap: wrap;
+        justify-content: center;
+      }
+      .usernames-wrapper .username {
+        margin: 0.5rem;
+        padding: 0.5rem;
+        background-color: #eee;
+        border-radius: 0.25rem;
+      }
+
+    #loader {
+  position: absolute;
+  left: 50%;
+  top: 50%;
+  z-index: 1;
+  width: 120px;
+  height: 120px;
+  margin: -60px 0 0 -60px;
+  text-align: center;
+}
+
+#loader i {
+  font-size: 60px;
+  color: #2563eb;
+}
+
+      #myDiv {
+display: none;
+text-align: center;
+position: relative;
+animation-name: animatebottom;
+animation-duration: 1s;
+animation-fill-mode: forwards;
+}
+
+@keyframes animatebottom {
+from {
+transform: translateY(100%);
+opacity: 0;
+}
+to {
+transform: translateY(0);
+opacity: 1;
+}
+}
+/* width */
+/* width */
+::-webkit-scrollbar {
+  background-color: transparent;
+}
+
+/* Track */
+::-webkit-scrollbar-track {
+  background-color: transparent;
+}
+ 
+/* Handle */
+::-webkit-scrollbar-thumb {
+  background: transparent; 
+  border-radius: 10px;
+}
+
+
+    </style>
+  </head>
+  <body onload="myFunction()"  class="bg-gray-900 text-white">
+<!--- <div id="loader"> 
+<i class="fad fa-spinner fa-spin"></i></div>    <div style="display:none;" id="myDiv" class="animate-bottom">
+      
+ ---->
+    <br><br>
+    <div class="flex justify-center">
+<div class="flex p-4 text-sm text-gray-800 border border-gray-300 rounded-lg bg-gray-50 dark:bg-gray-800 dark:text-gray-300 dark:border-gray-600" role="alert">
+  <svg aria-hidden="true" class="flex-shrink-0 inline w-5 h-5 mr-3" fill="currentColor" viewBox="0 0 20 20" xmlns="http://www.w3.org/2000/svg"><path fill-rule="evenodd" d="M18 10a8 8 0 11-16 0 8 8 0 0116 0zm-7-4a1 1 0 11-2 0 1 1 0 012 0zM9 9a1 1 0 000 2v3a1 1 0 001 1h1a1 1 0 100-2v-3a1 1 0 00-1-1H9z" clip-rule="evenodd"></path></svg>
+  <span class="sr-only">Info</span>
+  <div>
+    <span class="font-medium">Note: </span>We use Roblox IDs to facilitate username lookup by the system while display names block the usernames for privacy and security reasons.
+  </div>
+</div>
+</div>
+
+    <div class="flex justify-center items-center h-screen">
+      <div class="w-4/12 mx-auto">
+        <h1 class="text-4xl font-bold mb-4 text-center"><i class="fas fa-history"></i> Roblox Username History</h1>
+        <div class="flex">
+          <form method="post" action="/username" class="flex-1">
+            <label for="userId" class="block mb-2">User ID:</label>
+            <input type="text" name="userId" id="userId" required class="w-full px-4 py-2 mb-4 bg-gray-800 border border-gray-700 rounded-md text-white focus:outline-none focus:border-blue-500 focus:shadow-outline-blue" />
+            <button type="submit" class="px-4 py-2 bg-blue-600 rounded-md text-white hover:bg-blue-500 focus:outline-none focus:bg-blue-500">Get Username History</button>
+          </form>
+          <div class="flex-1 ml-4 bg-gray-800 rounded-md p-4">
+            <div class="text-white text-sm shadow-box text-center">
+  <p>Note: If the user has a lot of usernames it may load slow or crash!</p>
+</div>
+
+            <hr class="my-4" />
+            <% if (usernameHistory && usernameHistory.length > 0) { %>
+              <div class="usernames-wrapper">
+                <% usernameHistory.forEach((username) => { %>
+                  <div class="text-white bg-gray-900 hover:bg-gray-900 focus:outline-none focus:ring-4 focus:ring-gray-300 font-medium rounded-lg text-sm px-5 py-2.5 mr-2 mb-2 dark:bg-gray-800 dark:hover:bg-gray-700 dark:focus:ring-gray-700 dark:border-gray-700"><i class="fas fa-user"></i> <%= username.name %></div>
+                <% }); %>
+              </div>
+            <% } else if (usernameHistory && usernameHistory.length === 0) { %>
+ <div class="flex justify-center items-center">
+  <div class="w-2/3">
+    <p><span class="not-found-message"><i class="fas fa-exclamation-triangle"></i> No username history found for this user.</span></p>
+  </div>
+</div>
+            <% } %>
+          </div>
+        </div>
+      </div>
+    </div>
+            </div>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/flowbite/1.6.5/flowbite.min.js"></script>
+              <script>
+var myVar;
+
+function myFunction() {
+  myVar = setTimeout(showPage, 3000);
+}
+
+function showPage() {
+  document.getElementById("loader").style.display = "none";
+  document.getElementById("myDiv").style.display = "block";
+}
+</script>
+  </body>  
+</html>
